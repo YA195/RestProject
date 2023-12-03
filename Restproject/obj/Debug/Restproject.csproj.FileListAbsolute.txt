@@ -1,0 +1,12 @@
+D:\Project\Restproject\Restproject\bin\Debug\Restproject.exe.config
+D:\Project\Restproject\Restproject\bin\Debug\Restproject.exe
+D:\Project\Restproject\Restproject\bin\Debug\Restproject.pdb
+D:\Project\Restproject\Restproject\obj\Debug\Restproject.csproj.AssemblyReference.cache
+D:\Project\Restproject\Restproject\obj\Debug\Restproject.Form1.resources
+D:\Project\Restproject\Restproject\obj\Debug\Restproject.Properties.Resources.resources
+D:\Project\Restproject\Restproject\obj\Debug\Restproject.csproj.GenerateResource.cache
+D:\Project\Restproject\Restproject\obj\Debug\Restproject.csproj.CoreCompileInputs.cache
+D:\Project\Restproject\Restproject\obj\Debug\Restproject.exe
+D:\Project\Restproject\Restproject\obj\Debug\Restproject.pdb
+D:\Project\Restproject\Restproject\obj\Debug\Restproject.Customers.resources
+D:\Project\Restproject\Restproject\obj\Debug\Restproject.Stuff.resources
