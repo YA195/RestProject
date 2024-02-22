@@ -10,8 +10,8 @@ namespace Restproject
         // Constructor
         public Class1()
         {
-            string connectionString = "Data Source=.;Initial Catalog=restrest;User ID=sa;Password=ahmed";
-            con = new SqlConnection(connectionString);
+            string ConnectionString = "Data Source=.;Initial Catalog=restrest;User ID=sa;Password=ahmed";
+            con = new SqlConnection(ConnectionString);
         }
     }
 }

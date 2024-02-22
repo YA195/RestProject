@@ -16,7 +16,7 @@ namespace Restproject
     public partial class Form1 : Form
     {
         private SqlConnection con;
-        private Items itemsForm;  // Declare Items form as a class-level variable
+        private Items itemsForm;  
 
 
         public Form1()
@@ -24,9 +24,6 @@ namespace Restproject
             InitializeComponent();
             string connectionString = "Data Source=.;Initial Catalog=restrest;User ID=sa;Password=ahmed";
             con = new SqlConnection(connectionString);
-           
-
-
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -43,7 +40,6 @@ namespace Restproject
             {
                 con.Open();
 
-                // Assuming you have a table named "Qesm" with a column named "Qesm"
                 using (SqlCommand command = new SqlCommand("SELECT TOP 1 Qesm FROM Qesm", con))
                 {
                     object firstQesm = command.ExecuteScalar();
@@ -196,7 +192,7 @@ namespace Restproject
             con.Close();
         }
 
-        private void button16_Click(object sender, EventArgs e) // ISERT BUTTON NEW CUSTOMER
+        private void button16_Click(object sender, EventArgs e) 
         {
             string num = comboBox1.Text;
             string name = textBox1.Text;
@@ -223,7 +219,7 @@ namespace Restproject
 
         }
 
-        private void button17_Click(object sender, EventArgs e)// UPDATE BUTTON CUSTOMERS INFORMATION
+        private void button17_Click(object sender, EventArgs e)
         {
             
             label6.Text = $" {comboBox1.Text.Length}";
