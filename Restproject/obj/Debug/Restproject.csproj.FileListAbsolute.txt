@@ -10,3 +10,8 @@ D:\Project\Restproject\Restproject\obj\Debug\Restproject.exe
 D:\Project\Restproject\Restproject\obj\Debug\Restproject.pdb
 D:\Project\Restproject\Restproject\obj\Debug\Restproject.Customers.resources
 D:\Project\Restproject\Restproject\obj\Debug\Restproject.Stuff.resources
+D:\Project\Restproject\Restproject\obj\Debug\Restproject.Aqsam.resources
+D:\Project\Restproject\Restproject\obj\Debug\Restproject.Kit.resources
+D:\Project\Restproject\Restproject\obj\Debug\Restproject.Items.resources
+D:\Project\Restproject\Restproject\obj\Debug\Restproject.Attendence.resources
+D:\Project\Restproject\Restproject\obj\Debug\Restproject.Salary.resources

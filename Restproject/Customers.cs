@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ namespace Restproject
 {
     public partial class Customers : Form
     {
+        private Class1 con = new Class1();
+
         public Customers()
         {
             InitializeComponent();
@@ -19,9 +22,19 @@ namespace Restproject
 
         private void Customers_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'customersDataSet.Customers' table. You can move, or remove it, as needed.
-            this.customersTableAdapter.Fill(this.customersDataSet.Customers);
+            loaddata();
+        }
+        void loaddata()
+        {
+            con.con.Open();
+            string query = "SELECT * from Customers ";
+            SqlDataAdapter da = new SqlDataAdapter(query, con.con);
+            DataTable dt = new DataTable();
 
+            da.Fill(dt);
+
+            dataGridView1.DataSource = dt;
+            con.con.Close();
         }
     }
 }

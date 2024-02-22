@@ -28,42 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.restrestDataSet = new Restproject.restrestDataSet();
-            this.stuffBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.stuffTableAdapter = new Restproject.restrestDataSetTableAdapters.StuffTableAdapter();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.secnumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salaryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.positionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.restrestDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stuffBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -72,48 +66,107 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridView1.AutoGenerateColumns = false;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.numDataGridViewTextBoxColumn,
-            this.secnumDataGridViewTextBoxColumn,
-            this.salaryDataGridViewTextBoxColumn,
-            this.positionDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.stuffBindingSource;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle9;
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(740, 750);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.DataPropertyName = "Id";
+            this.Column1.HeaderText = "ID";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 71;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column2.DataPropertyName = "name";
+            this.Column2.HeaderText = "الاسم";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 89;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column3.DataPropertyName = "num";
+            this.Column3.HeaderText = "رقم الهاتف";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 126;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column4.DataPropertyName = "Sec_num";
+            this.Column4.HeaderText = "رقم الهاتف 2";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 132;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column5.DataPropertyName = "position";
+            this.Column5.HeaderText = "الوظيفه";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 107;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column6.DataPropertyName = "salary";
+            this.Column6.HeaderText = "المرتب";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // tableLayoutPanel1
             // 
@@ -197,16 +250,16 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "الاسم";
             // 
-            // label3
+            // label5
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(205, 205);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(81, 25);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "رقم الهاتف";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(205, 369);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(58, 25);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "الوظيفه";
             // 
             // label4
             // 
@@ -219,28 +272,6 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "مرتب/ساعه";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(205, 369);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(58, 25);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "الوظيفه";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(205, 287);
-            this.label6.Name = "label6";
-            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(92, 25);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "رقم الهاتف2";
-            // 
             // textBox1
             // 
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -248,7 +279,7 @@
             this.textBox1.Location = new System.Drawing.Point(3, 44);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(196, 28);
-            this.textBox1.TabIndex = 6;
+            this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
@@ -257,25 +288,7 @@
             this.textBox2.Location = new System.Drawing.Point(3, 126);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(196, 28);
-            this.textBox2.TabIndex = 7;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox3.Location = new System.Drawing.Point(3, 454);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(196, 28);
-            this.textBox3.TabIndex = 8;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox4.Location = new System.Drawing.Point(3, 290);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(196, 28);
-            this.textBox4.TabIndex = 9;
+            this.textBox2.TabIndex = 2;
             // 
             // textBox5
             // 
@@ -284,21 +297,25 @@
             this.textBox5.Location = new System.Drawing.Point(3, 208);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(196, 28);
-            this.textBox5.TabIndex = 10;
+            this.textBox5.TabIndex = 3;
             // 
-            // restrestDataSet
+            // textBox4
             // 
-            this.restrestDataSet.DataSetName = "restrestDataSet";
-            this.restrestDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.textBox4.Location = new System.Drawing.Point(3, 290);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(196, 28);
+            this.textBox4.TabIndex = 4;
             // 
-            // stuffBindingSource
+            // textBox3
             // 
-            this.stuffBindingSource.DataMember = "Stuff";
-            this.stuffBindingSource.DataSource = this.restrestDataSet;
-            // 
-            // stuffTableAdapter
-            // 
-            this.stuffTableAdapter.ClearBeforeFill = true;
+            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.textBox3.Location = new System.Drawing.Point(3, 454);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(196, 28);
+            this.textBox3.TabIndex = 6;
             // 
             // comboBox1
             // 
@@ -308,7 +325,7 @@
             this.comboBox1.Location = new System.Drawing.Point(3, 372);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(196, 33);
-            this.comboBox1.TabIndex = 11;
+            this.comboBox1.TabIndex = 5;
             // 
             // button1
             // 
@@ -319,7 +336,7 @@
             this.button1.Location = new System.Drawing.Point(3, 536);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(196, 35);
-            this.button1.TabIndex = 12;
+            this.button1.TabIndex = 7;
             this.button1.Text = "اضافة";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -333,7 +350,7 @@
             this.button2.Location = new System.Drawing.Point(3, 618);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(196, 37);
-            this.button2.TabIndex = 13;
+            this.button2.TabIndex = 8;
             this.button2.Text = "تعديل";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -347,57 +364,32 @@
             this.button3.Location = new System.Drawing.Point(3, 703);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(196, 44);
-            this.button3.TabIndex = 14;
+            this.button3.TabIndex = 9;
             this.button3.Text = "حذف";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // idDataGridViewTextBoxColumn
+            // label3
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Width = 48;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(205, 205);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label3.Size = new System.Drawing.Size(81, 25);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "رقم الهاتف";
             // 
-            // nameDataGridViewTextBoxColumn
+            // label6
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "الاسم";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 63;
-            // 
-            // numDataGridViewTextBoxColumn
-            // 
-            this.numDataGridViewTextBoxColumn.DataPropertyName = "num";
-            this.numDataGridViewTextBoxColumn.HeaderText = "رقم الهاتف";
-            this.numDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.numDataGridViewTextBoxColumn.Name = "numDataGridViewTextBoxColumn";
-            this.numDataGridViewTextBoxColumn.Width = 90;
-            // 
-            // secnumDataGridViewTextBoxColumn
-            // 
-            this.secnumDataGridViewTextBoxColumn.DataPropertyName = "Sec_num";
-            this.secnumDataGridViewTextBoxColumn.HeaderText = "رقم الهاتف 2";
-            this.secnumDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.secnumDataGridViewTextBoxColumn.Name = "secnumDataGridViewTextBoxColumn";
-            this.secnumDataGridViewTextBoxColumn.Width = 102;
-            // 
-            // salaryDataGridViewTextBoxColumn
-            // 
-            this.salaryDataGridViewTextBoxColumn.DataPropertyName = "salary";
-            this.salaryDataGridViewTextBoxColumn.HeaderText = "المرتب";
-            this.salaryDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.salaryDataGridViewTextBoxColumn.Name = "salaryDataGridViewTextBoxColumn";
-            this.salaryDataGridViewTextBoxColumn.Width = 72;
-            // 
-            // positionDataGridViewTextBoxColumn
-            // 
-            this.positionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.positionDataGridViewTextBoxColumn.DataPropertyName = "position";
-            this.positionDataGridViewTextBoxColumn.HeaderText = "الوظيفه";
-            this.positionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.positionDataGridViewTextBoxColumn.Name = "positionDataGridViewTextBoxColumn";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(205, 287);
+            this.label6.Name = "label6";
+            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label6.Size = new System.Drawing.Size(92, 25);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "رقم الهاتف2";
             // 
             // Stuff
             // 
@@ -413,8 +405,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.restrestDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stuffBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -435,18 +425,15 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
-        private restrestDataSet restrestDataSet;
-        private System.Windows.Forms.BindingSource stuffBindingSource;
-        private restrestDataSetTableAdapters.StuffTableAdapter stuffTableAdapter;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn secnumDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn salaryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }

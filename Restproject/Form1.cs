@@ -16,6 +16,8 @@ namespace Restproject
     public partial class Form1 : Form
     {
         private SqlConnection con;
+        private Items itemsForm;  // Declare Items form as a class-level variable
+
 
         public Form1()
         {
@@ -28,42 +30,53 @@ namespace Restproject
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'customersDataSet.Customers' table. You can move, or remove it, as needed.
             comboBox1.Text = "";
             label6.Text = "";
             label7.Text = "0";
             PopulateComboBox();
             loaddata();
+            LoadButtonsFromDatabase();  
         }
-        void loaddata()
+        public void loaddata()
         {
-            con.Open();
-            string query = "SELECT item, ps, pm, pl FROM items WHERE qesm LIKE '%pizza%'";
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            DataTable dt = new DataTable();
+            try
+            {
+                con.Open();
 
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
-            con.Close();
+                // Assuming you have a table named "Qesm" with a column named "Qesm"
+                using (SqlCommand command = new SqlCommand("SELECT TOP 1 Qesm FROM Qesm", con))
+                {
+                    object firstQesm = command.ExecuteScalar();
+
+                    if (firstQesm != null)
+                    {
+                        string selectedType = firstQesm.ToString();
+
+                        SqlCommand itemsCommand = new SqlCommand("SELECT item, ps, pm, pl FROM items WHERE qesm LIKE @selectedType", con);
+                        itemsCommand.Parameters.AddWithValue("@selectedType", "%" + selectedType + "%");
+
+                        SqlDataAdapter da = new SqlDataAdapter(itemsCommand);
+                        DataTable dt = new DataTable();
+
+                        da.Fill(dt);
+                        dataGridView1.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading initial data: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
         }
-        private void button2_Click(object sender, EventArgs e)
-        {
-           loaddata();
-        }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            con.Open();
-            string query = "SELECT item, ps, pm, pl FROM items WHERE qesm LIKE '%sharqy%'";
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            DataTable dt = new DataTable();
 
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
-            con.Close();
-        }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        public void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Check if the clicked cell is not empty, is in a clickable range, and is not null or whitespace
             if (e.RowIndex >= 0 && e.ColumnIndex >= 1 && e.ColumnIndex <= 3 &&
@@ -85,7 +98,12 @@ namespace Restproject
                     bool found = false;
                     foreach (DataGridViewRow row in dataGridView2.Rows)
                     {
-                        if (row.Cells[0].Value.ToString() == item + " صغير "&& int.Parse(row.Cells[2].Value.ToString()) == price || row.Cells[0].Value.ToString() == item + " وسط " && int.Parse(row.Cells[2].Value.ToString()) == price || row.Cells[0].Value.ToString() == item + " كبير " && int.Parse(row.Cells[2].Value.ToString()) == price)
+                        if (row.Cells[0].Value.ToString() == item + " صغير " &&
+                            int.Parse(row.Cells[2].Value.ToString()) == price ||
+                            row.Cells[0].Value.ToString() == item + " وسط " &&
+                            int.Parse(row.Cells[2].Value.ToString()) == price ||
+                            row.Cells[0].Value.ToString() == item + " كبير " &&
+                            int.Parse(row.Cells[2].Value.ToString()) == price)
                         {
                             found = true;
                             quantity = int.Parse(row.Cells[1].Value.ToString());
@@ -102,24 +120,16 @@ namespace Restproject
                     {
                         if (e.ColumnIndex == 1)
                         {
-
-                            dataGridView2.Rows.Add(item+" صغير ", 1, price, total);
-
+                            dataGridView2.Rows.Add(item + " صغير ", 1, price, total);
                         }
                         if (e.ColumnIndex == 2)
                         {
-
-                            dataGridView2.Rows.Add(item+" وسط ", 1, price, total);
-
+                            dataGridView2.Rows.Add(item + " وسط ", 1, price, total);
                         }
                         if (e.ColumnIndex == 3)
                         {
-
-                            dataGridView2.Rows.Add(item+" كبير ", 1, price, total);
-
+                            dataGridView2.Rows.Add(item + " كبير ", 1, price, total);
                         }
-
-
                     }
                 }
                 else
@@ -128,6 +138,27 @@ namespace Restproject
                 }
             }
             UpdateSumLabel();
+
+            string selectedItem = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+            // Check if the Items form is open
+            Items itemsForm = Application.OpenForms.OfType<Items>().FirstOrDefault(f => !f.IsDisposed);
+
+            if (itemsForm == null)
+            {
+                // If the Items form is not open, create and show it
+                itemsForm = new Items(this, selectedItem);
+                itemsForm.FormClosed += (s, args) => itemsForm = null;  // Reset itemsForm when closed
+                
+            }
+            else
+            {
+                // If the Items form is already open, just reload the data and bring it to the front
+                itemsForm.PopulateItemData(selectedItem);
+                itemsForm.BringToFront();
+            }
+
+
         }
 
 
@@ -342,17 +373,145 @@ namespace Restproject
             }
         }
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-            dataGridView2.Rows.Clear();
-            UpdateSumLabel();
-        }
+       
 
         private void عمالهToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Stuff stuff = new Stuff();
             stuff.Show();
 
+        }
+
+        public void LoadButtonsFromDatabase()
+        {
+            // Clear existing buttons before reloading
+            panel3.Controls.Clear();
+
+            con.Open();
+
+            // Assuming you have a table named "YourTable" and a column named "Type"
+            using (SqlCommand command = new SqlCommand("SELECT DISTINCT Qesm FROM Qesm", con))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string type = reader["Qesm"].ToString();
+                        CreateButton(type);
+                    }
+                }
+            }
+            con.Close();
+        }
+
+
+        private void CreateButton(string type)
+        {
+            Button button = new Button
+            {
+                Text = type,
+                Width = 100,  // Set your preferred width
+                Height = 73,  // Set your preferred height
+                Tag = type,
+                Dock = DockStyle.Top,
+                // You can use Tag to store additional information if needed
+            };
+
+
+
+            panel3.Controls.Add(button);
+            button.Click += Button_Click;  // Attach an event handler
+
+        }
+        private void Button_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = (Button)sender;
+            string selectedType = clickedButton.Tag.ToString(); // or clickedButton.Text, depending on how you set it
+
+            con.Open();
+
+            SqlCommand command = new SqlCommand("SELECT item, ps, pm, pl FROM items WHERE qesm LIKE @selectedType",con);
+            command.Parameters.AddWithValue("@selectedType", "%" + selectedType + "%");
+
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+
+            con.Close();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void الاقسامToolStripMenuItem_Click(object sender, EventArgs e)
+        {   
+            Aqsam form = new Aqsam(this); // Pass a reference to Form1
+            form.ShowDialog();
+        }
+
+        private void المطToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Kit form = new Kit(); // Pass a reference to Form1
+            form.ShowDialog();
+        }
+
+        private void الاصنافToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Assuming you want to pass the selected item from dataGridView1
+            string selectedItem = dataGridView1.CurrentRow.Cells["item"].Value.ToString();
+
+            // Check if the Items form is not already open
+            if (itemsForm == null || itemsForm.IsDisposed)
+            {
+                // Create an instance of Items and pass Form1 and the selected item
+                itemsForm = new Items(this, selectedItem);
+
+                // Set the form properties as needed, for example:
+                itemsForm.TopLevel = false;
+                itemsForm.Dock = DockStyle.Fill;
+
+                // Add the ItemsForm to panel4
+                panel4.Controls.Add(itemsForm);
+
+                // Subscribe to the FormClosed event to set itemsForm to null when closed
+                itemsForm.FormClosed += (s, args) => itemsForm = null;
+
+                // Show the ItemsForm
+                itemsForm.Show();
+            }
+           
+                // If the Items form is already open, just reload the data and bring it to the front
+                itemsForm.PopulateItemData(selectedItem);
+                itemsForm.BringToFront();
+            
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button8_Click_1(object sender, EventArgs e)
+        {
+            dataGridView2.Rows.Clear();
+            UpdateSumLabel();
+
+        }
+
+        private void حضورToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Attendence form = new Attendence(); // Pass a reference to Form1
+            form.ShowDialog();
+        }
+
+        private void اجورToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Salary form = new Salary(); // Pass a reference to Form1
+            form.ShowDialog();
         }
     }
 }
